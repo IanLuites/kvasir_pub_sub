@@ -11,7 +11,7 @@ defmodule Kvasir.PubSub.Protocols.MQTT do
   @impl Kvasir.PubSub.Protocol
   def handshake(transport, socket) do
     case __MODULE__.read(transport, socket) do
-      {:ok, x = {:mqtt, :connect, {version, flags, opts}}} ->
+      {:ok, {:mqtt, :connect, {version, flags, opts}}} ->
         u = opts[:username]
         p = opts[:password]
 
